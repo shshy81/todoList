@@ -10,6 +10,8 @@
     <Todo 
       v-for="todo in todos" :key="todo.id"
       :todo="todo"
+      @toggle-checkbox="toggleCheckBox"
+      @click-delete="deleteTodo"
     />
   </div>
 </template>
@@ -37,6 +39,19 @@ export default {
         checked: false,
       });
       this.todoText = '';
+    },
+    toggleCheckBox({_id, _checked}) {
+      const index = this.todos.findIndex(todo => {
+        return todo.id === _id;
+      });
+      this.todos[index].checked = _checked;
+    },
+    deleteTodo(_id) {
+      // const index = this.todos.findIndex(todo => {
+      //   return todo.id === _id;
+      // });
+      // this.todos.splice(index, 1);
+      this.todos = this.todos.filter(todo => todo.id != _id);
     }
   }
 }
