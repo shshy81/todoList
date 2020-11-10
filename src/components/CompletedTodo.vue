@@ -7,14 +7,14 @@
 <script>
 export default {
     props: {
-        todos: {
+        propTodos: {
             type: Array,
             required: true
         }
     },
     computed: {
         numberOfCompletedTodo() {
-            return this.todos.filter(todo => todo.checked).length;
+            return this.propTodos.filter(todo => todo.checked).length;
         }
     }
 }

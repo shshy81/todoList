@@ -1,15 +1,14 @@
 <template>
   <div id="app" class="container">
     <h1 class="text-center">Todo List</h1>
-    <CompletedTodo :todos="todos"/>
+    <CompletedTodo :propTodos="todos"/>
     <AddTodo @add-todo = "addTodo" />
     <hr>
     <TodoList 
-      :todos="todos" 
+      :propTodos="todos" 
       @toggle-checkbox = "toggleCheckbox"
       @click-delete = "deleteTodo"
     />
-    {{ todos }}
   </div>
 </template>
 

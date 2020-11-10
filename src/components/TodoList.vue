@@ -1,8 +1,8 @@
 <template>
     <div>
         <Todo 
-            v-for="todo in todos" :key="todo.id"
-            :todos = "todo"
+            v-for="todo in propTodos" :key="todo.id"
+            :propTodos = "todo"
             @toggle-checkbox = "toggleCheckbox"
             @click-delete = "deleteTodo"
             />
@@ -16,7 +16,7 @@ export default {
         Todo
     },
     props: {
-        todos: {
+        propTodos: {
             type: Array,
             required: true
         }
