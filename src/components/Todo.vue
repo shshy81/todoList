@@ -3,16 +3,16 @@
       <div>
         <input 
           type="checkbox" 
-          :checked="todo.checked"
+          :checked="propTodo.checked"
           @change="toggleCheckbox"
         />
       </div>
       <span 
-        class="ml-3 flex-grow-1"
-        :class="todo.checked ? 'text-muted' : ''"
-        :style="todo.checked ? 'text-decoration: line-through' : ''"
+       class="ml-3 flex-grow-1"
+       :class="propTodo.checked ? 'text-muted': ''"
+       :style="propTodo.checked ? 'text-decoration: line-through' : ''"
       >
-        {{ todo.text }}
+        {{ propTodo.text }} 
       </span>
       <button 
         class="btn btn-danger btn-sm"
@@ -26,25 +26,24 @@
 <script>
 export default {
     props: {
-      todo : {
+      propTodo: {
         type: Object,
-        required: true,
+        required: true
       }
     },
     methods: {
       toggleCheckbox(e) {
+        // 부모의 todos의 checked를 변경해줘햐 하니 emit 사용
         this.$emit('toggle-checkbox', {
-          _id: this.todo.id,
+          _id : this.propTodo.id,
           _checked : e.target.checked
         });
+        // console.log(e.target.checked);
       },
       clickDelete() {
-        this.$emit('click-delete', this.todo.id);
+        this.$emit('click-delete', this.propTodo.id);
       }
-    }
+    },
 }
 </script>
 
-<style scoped>
-.done {text-decoration-line: line-through}
-</style>

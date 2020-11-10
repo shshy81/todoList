@@ -2,16 +2,16 @@
   <div id="app" class="container">
     <h1 class="text-center">Todo List</h1>
     <input 
-      type="text" class="w-100 p-2" placeholder="add Here"
+      type= "text" class = "w-100 p-2" placeholder = "add Here"
       @keyup.enter="addTodo"
       v-model="todoText"
     />
     <hr>
     <Todo 
       v-for="todo in todos" :key="todo.id"
-      :todo="todo"
-      @toggle-checkbox="toggleCheckBox"
-      @click-delete="deleteTodo"
+      :propTodo = "todo"
+      @toggle-checkbox = "toggleCheckbox"
+      @click-delete = "deleteTodo"
     />
   </div>
 </template>
@@ -36,21 +36,17 @@ export default {
       this.todos.push({
         id: Math.random(),
         text: e.target.value,
-        checked: false,
+        checked: false
       });
       this.todoText = '';
     },
-    toggleCheckBox({_id, _checked}) {
-      const index = this.todos.findIndex(todo => {
-        return todo.id === _id;
-      });
+    // 인자 받을때 객체형태로 받았으니 사용할때도 객체로 쓰기
+    // { }
+    toggleCheckbox({_id, _checked}) {
+      const index = this.todos.findIndex(todo => todo.id === _id);
       this.todos[index].checked = _checked;
     },
     deleteTodo(_id) {
-      // const index = this.todos.findIndex(todo => {
-      //   return todo.id === _id;
-      // });
-      // this.todos.splice(index, 1);
       this.todos = this.todos.filter(todo => todo.id != _id);
     }
   }
