@@ -20,6 +20,7 @@
       >
         Delete
       </button>
+      {{ numberOfCompletedTodo }}
     </div>
 </template>
 
@@ -30,6 +31,11 @@ export default {
         type: Object,
         required: true
       }
+    },
+    computed: {
+      numberOfCompletedTodo() {
+            return this.$store.getters.numberOfCompletedTodo;
+        }
     },
     methods: {
       toggleCheckbox(e) {
