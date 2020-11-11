@@ -33,19 +33,13 @@ export default {
     },
     methods: {
       toggleCheckbox(e) {
-        // 부모의 todos의 checked를 변경해줘햐 하니 emit 사용
-        // this.$emit('toggle-checkbox', {
-        //   _id : this.todos.id,
-        //   _checked : e.target.checked
-        // });
-        this.$store.commit('TOGGLE_TODO', {
+        this.$store.dispatch('toggleTodo', {
           _id : this.todos.id,
           _checked : e.target.checked
         });
       },
       clickDelete() {
-        // this.$emit('click-delete', this.todos.id);
-        this.$store.commit('DELETE_TODO', this.todos.id);
+        this.$store.dispatch('deleteTodo', this.todos.id);
       }
     },
 }

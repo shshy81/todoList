@@ -18,14 +18,6 @@ export default {
             return this.$store.state.todos;
         }
     },
-    methods: {
-        // toggleCheckbox(value) {
-        //     this.$emit('toggle-checkbox', value);
-        // },
-        // deleteTodo(value) {
-        //     this.$emit('click-delete', value);
-        // }
-    }
 }
 </script>
 
