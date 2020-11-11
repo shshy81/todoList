@@ -13,7 +13,8 @@ export default {
         numberOfCompletedTodo() {
             // return this.$store.state.todos.filter(todo => todo.checked).length;
             // return this.todos.filter(todo => todo.checked).length;
-            return this.$store.getters.numberOfCompletedTodo;
+            // module 사용위해 변경
+            return this.$store.getters['todo/numberOfCompletedTodo'];
         }
     }
 }

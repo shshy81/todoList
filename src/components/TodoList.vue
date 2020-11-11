@@ -15,7 +15,9 @@ export default {
     },
     computed: {
         getTodos() {
-            return this.$store.state.todos;
+            // return this.$store.state.todos;
+            // module로 쓰려면 모듈을 추가해둬야함.
+            return this.$store.state.todo.todos;
         }
     },
 }

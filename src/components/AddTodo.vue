@@ -17,7 +17,7 @@ export default {
     },
     methods: {
         addTodo(e) {
-            this.$store.dispatch('addTodo',  e.target.value);
+            this.$store.dispatch('todo/addTodo',  e.target.value);
             this.todoText = '';
         }
     }

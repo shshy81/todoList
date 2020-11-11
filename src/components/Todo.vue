@@ -34,18 +34,20 @@ export default {
     },
     computed: {
       numberOfCompletedTodo() {
-            return this.$store.getters.numberOfCompletedTodo;
+            // return this.$store.getters.numberOfCompletedTodo;
+            // module 사용위해 변경
+            return this.$store.getters['todo/numberOfCompletedTodo'];
         }
     },
     methods: {
-      toggleCheckbox(e) {
-        this.$store.dispatch('toggleTodo', {
+      toggleCheckbox(e) {// module 사용위해 변경
+        this.$store.dispatch('todo/toggleTodo', {
           _id : this.todos.id,
           _checked : e.target.checked
         });
       },
-      clickDelete() {
-        this.$store.dispatch('deleteTodo', this.todos.id);
+      clickDelete() {// module 사용위해 변경
+        this.$store.dispatch('todo/deleteTodo', this.todos.id);
       }
     },
 }
